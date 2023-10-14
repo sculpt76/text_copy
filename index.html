@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>텍스트 복사 예제</title>
+</head>
+
+<body>
+    <h1>텍스트 복사 페이지</h1>
+
+    <div class="copy-text-container">
+        <p>텍스트 1: 이것은 첫 번째 텍스트입니다.</p>
+        <button onclick="copyText(1)">텍스트 복사</button>
+    </div>
+
+    <div class="copy-text-container">
+        <p>텍스트 2: 이것은 두 번째 텍스트입니다.</p>
+        <button onclick="copyText(2)">텍스트 복사</button>
+    </div>
+
+    <!-- 이와 같은 방식으로 나머지 텍스트와 버튼을 추가합니다. -->
+
+    <script>
+        function copyText(textNumber) {
+            var textToCopy = '';
+            if (textNumber === 1) {
+                textToCopy = "이것은 첫 번째 텍스트입니다.";
+            } else if (textNumber === 2) {
+                textToCopy = "이것은 두 번째 텍스트입니다.";
+            }
+            // 다른 텍스트에 대한 조건을 추가하고, 각 버튼이 다른 텍스트를 복사하도록 설정합니다.
+
+            var tempInput = document.createElement("input");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            alert(`텍스트 ${textNumber}가 복사되었습니다: ${textToCopy}`);
+        }
+    </script>
+</body>
+
+</html>
